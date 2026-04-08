@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('guardian_consents', function (Blueprint $table) {
             $table->id('Consent_ID'); // Primary key
-            $table->foreignId('Student_ID')->constrained('students')->onDelete('cascade'); // FK to the students table
-            $table->foreignId('Guardian_ID')->constrained('kins')->onDelete('cascade'); // FK to the kins table (next of kin)
+            $table->unsignedBigInteger('Student_ID');
+            $table->foreign('Student_ID')->references('Student_id')->on('students')->onDelete('cascade'); // FK to the students table
+            $table->unsignedBigInteger('Guardian_ID');
+            $table->foreign('Guardian_ID')->references('Kin_ID')->on('kin')->onDelete('cascade'); // FK to the kin table (next of kin)
             $table->boolean('Access_Granted')->default(false); // Whether access is granted
             $table->date('Consent_Date'); // The date the consent was given
             $table->date('Expiry_Date'); // The date the consent expires

@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('Status')->nullable();
             $table->date('Date_Report')->nullable();
             $table->string('Emergency_Contact')->nullable();
-            $table->foreignId('Guardian_ID')->nullable()->constrained('guardians')->onDelete('set null'); // Example of foreign key to `guardians` table
+            $table->unsignedBigInteger('Guardian_ID')->nullable();
+            $table->foreign('Guardian_ID')->references('Kin_ID')->on('kin')->onDelete('set null');
             $table->softDeletes(); // Soft delete column
             $table->timestamps(); // created_at and updated_at
         });
