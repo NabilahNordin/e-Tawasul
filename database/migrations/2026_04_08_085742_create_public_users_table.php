@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('Email')->unique();
             $table->boolean('View_Public_Dashboard')->default(false);
             $table->boolean('Makes_Donation')->default(false);
+             $table->softDeletes();
             $table->timestamps();
         });
     }
