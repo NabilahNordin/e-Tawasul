@@ -1,5 +1,5 @@
 <x-filament-panels::page>
-    
+
 <div class="min-h-screen bg-slate-50 text-slate-800">
 
     <!-- Header -->
