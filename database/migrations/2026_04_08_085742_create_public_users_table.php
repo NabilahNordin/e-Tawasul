@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+         Schema::dropIfExists('public_users');
         Schema::create('public_users', function (Blueprint $table) {
             $table->id('User_ID');
             $table->string('First_Name');
@@ -18,6 +19,7 @@ return new class extends Migration
             $table->string('Email')->unique();
             $table->boolean('View_Public_Dashboard')->default(false);
             $table->boolean('Makes_Donation')->default(false);
+             $table->softDeletes();
             $table->timestamps();
         });
     }
