@@ -57,4 +57,9 @@ class User extends Authenticatable
     {
         return true;
     }
+
+    public function kin()
+    {
+        return $this->hasOne(Kin::class, 'Email', 'email');
+    }
 }

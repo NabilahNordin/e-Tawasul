@@ -157,13 +157,6 @@ class Login extends OriLogin
 
 
             Auth::login($user);
-            activity()
-                ->causedBy(auth()->user())
-                ->withProperties([
-                    'ip'    => request()->ip(),
-                    'agent' => request()->userAgent(),
-                ])
-                ->log('user logged in');
             return true;
         }
 
