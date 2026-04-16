@@ -150,7 +150,7 @@ class Login extends OriLogin
 
     function processLogin($data)
     {
-        $user = User::where('username', $data['username'])
+        $user = User::where('email', $data['username'])
             ->first();
 
         if ($user && Hash::check($data['password'], $user->password)) {
