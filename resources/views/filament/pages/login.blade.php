@@ -65,7 +65,7 @@
                 <div class="mb-6">
                     <label class="block text-sm font-medium text-gray-700 mb-3">Login As</label>
                     <div class="grid grid-cols-3 gap-3">
-                        <button wire:click="loginAs('student')" class="flex flex-col items-center justify-center p-4 border-2  transition-colors rounded-lg
+                        <button wire:click="loginAs('student')" class="flex flex-col items-center justify-center p-4 border-2  transition-colors rounded-lg 
                                 {{ $typelogin === 'student'
                                 ? 'border-blue-500 bg-blue-50 hover:bg-blue-100'
                                 : 'border-gray-200 hover:bg-gray-50' }}">
@@ -74,7 +74,7 @@
                             </svg>
                             <span class="text-sm font-medium text-gray-900">Student</span>
                         </button>
-                        <button wire:click="loginAs('admin')" class="flex flex-col items-center justify-center p-4 border-2  transition-colors rounded-lg
+                        <button wire:click="loginAs('admin')" class="flex flex-col items-center justify-center p-4 border-2  transition-colors rounded-lg 
                                 {{ $typelogin === 'admin'
                                 ? 'border-blue-500 bg-blue-50 hover:bg-blue-100'
                                 : 'border-gray-200 hover:bg-gray-50' }}">
@@ -83,7 +83,7 @@
                             </svg>
                             <span class="text-sm font-medium text-gray-900">Admin</span>
                         </button>
-                        <button wire:click="loginAs('next-kin')" class="flex flex-col items-center justify-center p-4 border-2 transition-colors rounded-lg
+                        <button wire:click="loginAs('next-kin')" class="flex flex-col items-center justify-center p-4 border-2 transition-colors rounded-lg 
                                 {{ $typelogin === 'next-kin'
                                 ? 'border-blue-500 bg-blue-50 hover:bg-blue-100'
                                 : 'border-gray-200 hover:bg-gray-50' }}
