@@ -20,6 +20,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use App\Filament\Pages\Login;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -30,8 +31,8 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->viteTheme('resources/css/filament/admin/theme.css')
-            ->login()
-             ->spa()
+            ->login(Login::class)
+            ->spa()
             ->sidebarCollapsibleOnDesktop()
             ->renderHook(
                 PanelsRenderHook::BODY_END,
