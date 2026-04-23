@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 
 class UserSeeder extends Seeder
 {
@@ -13,29 +14,33 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-         // Create a student user
-        User::create([
+        // Create a student user
+        $user = User::create([
             'name' => 'Student ',
             'email' => 'student@test.com',
             'password' => bcrypt('student1234'), // Hash password
-            'role' => 'student', // Set role as 'student'
+
         ]);
+        $user->assignRole(Role::where('name', 'student')->first());
+
 
 
         // Create an admin user
-        User::create([
+        $user = User::create([
             'name' => 'Admin',
             'email' => 'admin@test.com',
             'password' => bcrypt('admin1234'), // Hash password
-            'role' => 'admin', // Set role as 'admin'
+
         ]);
+        $user->assignRole(Role::where('name', 'admin')->first());
 
         // Create a next of kin user
-        User::create([
+        $user = User::create([
             'name' => 'Kin',
             'email' => 'kin@test.com',
             'password' => bcrypt('kin1234'), // Hash password
-            'role' => 'kin', // Set role as 'kin'
+
         ]);
+        $user->assignRole(Role::where('name', 'kin')->first());
     }
 }
