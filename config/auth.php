@@ -41,6 +41,7 @@ return [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
+            'page' => \App\Filament\Pages\Login::class, // Ensure this is correct
         ],
     ],
 
