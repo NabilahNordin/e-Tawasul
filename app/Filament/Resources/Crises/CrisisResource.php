@@ -24,6 +24,11 @@ class CrisisResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'crisis';
 
+       public static function shouldRegisterNavigation(): bool
+    {
+        return auth()->user()?->hasRole(['admin']);
+    }
+
     public static function form(Schema $schema): Schema
     {
         return CrisisForm::configure($schema);

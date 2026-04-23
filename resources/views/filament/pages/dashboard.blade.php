@@ -60,7 +60,8 @@
                             </p>
                         </div>
                     </div>
-                    <button class="w-full bg-orange-600 hover:bg-orange-700 text-white py-4 rounded-xl font-medium transition-colors">
+                    <button wire:navigate
+                        href="{{ url('/admin/crises/create')}}" class="w-full bg-orange-600 hover:bg-orange-700 text-white py-4 rounded-xl font-medium transition-colors">
                         Report Crisis
                     </button>
                 </div>
