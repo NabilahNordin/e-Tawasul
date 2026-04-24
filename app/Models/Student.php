@@ -17,9 +17,10 @@ class Student extends Model
     protected $primaryKey = 'Student_id';
 
     // Specify the fillable columns
-    protected $fillable = [
-        'First_Name', 'Last_Name', 'Email', 'Status', 'Date_Report', 'Emergency_Contact', 'Guardian_ID'
-    ];
+    protected $guarded = [];
+    // protected $fillable = [
+    //     'First_Name', 'Last_Name', 'Email', 'Status', 'Date_Report', 'Emergency_Contact', 'Guardian_ID'
+    // ];
 
     // Specify the dates that should be mutated to Carbon instances
     protected $dates = ['deleted_at']; // Soft delete column
