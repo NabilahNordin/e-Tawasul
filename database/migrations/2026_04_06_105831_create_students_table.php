@@ -11,6 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
+         Schema::dropIfExists('students');
         Schema::create('students', function (Blueprint $table) {
 
             $table->id('Student_id'); // Primary Key
@@ -20,7 +21,21 @@ return new class extends Migration
             $table->date('Date_Report')->nullable();
             $table->string('Emergency_Contact')->nullable();
             $table->unsignedBigInteger('Guardian_ID')->nullable();
-            $table->foreign('Guardian_ID')->references('Kin_ID')->on('kin')->onDelete('set null');
+            $table->foreign('Guardian_ID')->references('Kin_ID')->on('kin')->onDelete('set null')->nullable();
+            
+            $table->string('image_url')->nullable();
+            $table->string('name');
+            $table->string('matric_no')->unique()->nullable();
+            $table->string('level')->nullable();
+            $table->string('kuliyyah')->nullable();
+            $table->string('ic', 20)->nullable();
+            $table->enum('gender', ['MALE', 'FEMALE'])->nullable();
+            $table->date('birthday')->nullable();
+            $table->string('religion')->nullable();
+            $table->string('marital_status')->nullable();
+            $table->text('address')->nullable();
+
+            
             $table->softDeletes(); // Soft delete column
             $table->timestamps(); // created_at and updated_at
         });

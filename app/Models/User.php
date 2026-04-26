@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Process;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -53,13 +55,64 @@ class User extends Authenticatable
         ];
     }
 
-     public function canAccessPanel(Panel $panel): bool
+    public function canAccessPanel(Panel $panel): bool
     {
         return true;
     }
 
+<<<<<<< HEAD
     public function kin()
     {
         return $this->hasOne(Kin::class, 'Email', 'email');
+=======
+
+    public static function playwrightscrapelogin($username , $password)
+    {
+        // $username = "2225498";
+        // $password = "jOB1Te_H7";
+        $scriptPath = resource_path('scripts/crawl-login.js');
+
+        // Pass variables as arguments after the script path
+        $result = Process::run("node \"$scriptPath\" $username $password");
+
+
+        $output = $result->output();
+        return json_decode($output);
+        // if($output){
+        //     return $output ;
+        // }
+        // $userData = json_decode($output, true);
+        // dd($userData);
+    }
+
+
+
+    public static function api_login($username, $password)
+    {
+        $baseUrl = 'https://api.quddus.my/api';
+        $response = Http::post("{$baseUrl}/auth/login", [
+            'username' => $username,
+            'password' => $password,
+        ]);
+
+        if ($response->successful()) {
+            return $response->json()['data']['token'];
+        }
+
+        // throw new \Exception($response->json()['message'] ?? 'Login failed');
+        return false;
+    }
+
+    /**
+     * Step 2: Fetch Profile using the token
+     */
+    public static function api_getProfile($token)
+    {
+        $baseUrl = 'https://api.quddus.my/api';
+        $response = Http::withToken($token)
+            ->get("{$baseUrl}/profile");
+
+        return $response->json();
+>>>>>>> f09db3a72e3a156bd97e7df0f2e5b67f6f3b7ef9
     }
 }

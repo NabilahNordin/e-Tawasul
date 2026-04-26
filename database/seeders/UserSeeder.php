@@ -7,6 +7,9 @@ use App\Models\Student;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
+use Spatie\Permission\Models\Role;
 
 class UserSeeder extends Seeder
 {
@@ -15,6 +18,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+<<<<<<< HEAD
         // Create a student user
         $studentUser = User::create([
             'name' => 'Student',
@@ -54,6 +58,41 @@ class UserSeeder extends Seeder
             'Email' => 'student@test.com',
             'Status' => 'Active',
             'Guardian_ID' => $kin->Kin_ID,
+=======
+
+        Schema::disableForeignKeyConstraints();
+        DB::table('users')->truncate();
+        Schema::enableForeignKeyConstraints();
+
+
+        // Create a student user
+        $user = User::create([
+            'name' => 'Student ',
+            'email' => 'student@test.com',
+            'password' => bcrypt('student1234'), // Hash password
+
         ]);
+        $user->assignRole(Role::where('name', 'student')->first());
+
+
+
+        // Create an admin user
+        $user = User::create([
+            'name' => 'Admin',
+            'email' => 'admin@test.com',
+            'password' => bcrypt('admin1234'), // Hash password
+
+        ]);
+        $user->assignRole(Role::where('name', 'admin')->first());
+
+        // Create a next of kin user
+        $user = User::create([
+            'name' => 'Kin',
+            'email' => 'kin@test.com',
+            'password' => bcrypt('kin1234'), // Hash password
+
+>>>>>>> f09db3a72e3a156bd97e7df0f2e5b67f6f3b7ef9
+        ]);
+        $user->assignRole(Role::where('name', 'kin')->first());
     }
 }

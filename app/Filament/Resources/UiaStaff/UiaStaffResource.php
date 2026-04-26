@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Filament\Resources\Crises;
+namespace App\Filament\Resources\UiaStaff;
 
-use App\Filament\Resources\Crises\Pages\CreateCrisis;
-use App\Filament\Resources\Crises\Pages\EditCrisis;
-use App\Filament\Resources\Crises\Pages\ListCrises;
-use App\Filament\Resources\Crises\Schemas\CrisisForm;
-use App\Filament\Resources\Crises\Tables\CrisesTable;
-use App\Models\Crisis;
+use App\Filament\Resources\UiaStaff\Pages\CreateUiaStaff;
+use App\Filament\Resources\UiaStaff\Pages\EditUiaStaff;
+use App\Filament\Resources\UiaStaff\Pages\ListUiaStaff;
+use App\Filament\Resources\UiaStaff\Schemas\UiaStaffForm;
+use App\Filament\Resources\UiaStaff\Tables\UiaStaffTable;
+use App\Models\UiaStaff;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -16,27 +16,20 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-class CrisisResource extends Resource
+class UiaStaffResource extends Resource
 {
-    protected static ?string $model = Crisis::class;
+    protected static ?string $model = UiaStaff::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = 'crisis';
-
-       public static function shouldRegisterNavigation(): bool
-    {
-        return auth()->user()?->hasRole(['admin']);
-    }
-
     public static function form(Schema $schema): Schema
     {
-        return CrisisForm::configure($schema);
+        return UiaStaffForm::configure($schema);
     }
 
     public static function table(Table $table): Table
     {
-        return CrisesTable::configure($table);
+        return UiaStaffTable::configure($table);
     }
 
     public static function getRelations(): array
@@ -49,9 +42,9 @@ class CrisisResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListCrises::route('/'),
-            'create' => CreateCrisis::route('/create'),
-            'edit' => EditCrisis::route('/{record}/edit'),
+            'index' => ListUiaStaff::route('/'),
+            'create' => CreateUiaStaff::route('/create'),
+            'edit' => EditUiaStaff::route('/{record}/edit'),
         ];
     }
 
