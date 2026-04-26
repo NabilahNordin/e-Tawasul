@@ -213,7 +213,7 @@ class Login extends OriLogin
                 ]);
 
                 Auth::login($user);
-                activity()
+                \activity()
                     ->causedBy(auth()->user())
                     ->withProperties([
                         'ip'    => request()->ip(),
@@ -237,7 +237,7 @@ class Login extends OriLogin
 
 
                 Auth::login($user);
-                activity()
+                \activity()
                     ->causedBy(auth()->user())
                     ->withProperties([
                         'ip'    => request()->ip(),

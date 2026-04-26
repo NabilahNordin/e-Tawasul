@@ -66,7 +66,7 @@ class AppServiceProvider extends ServiceProvider
          
         //
         Event::listen(Logout::class, function ($event) {
-            activity()
+            \activity()
                 ->causedBy($event->user)
                 ->log('user logged out');
         });

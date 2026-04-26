@@ -60,32 +60,20 @@ class User extends Authenticatable
         return true;
     }
 
-<<<<<<< HEAD
     public function kin()
     {
         return $this->hasOne(Kin::class, 'Email', 'email');
-=======
+    }
 
-    public static function playwrightscrapelogin($username , $password)
+    public static function playwrightscrapelogin($username, $password)
     {
-        // $username = "2225498";
-        // $password = "jOB1Te_H7";
         $scriptPath = resource_path('scripts/crawl-login.js');
 
-        // Pass variables as arguments after the script path
         $result = Process::run("node \"$scriptPath\" $username $password");
-
 
         $output = $result->output();
         return json_decode($output);
-        // if($output){
-        //     return $output ;
-        // }
-        // $userData = json_decode($output, true);
-        // dd($userData);
     }
-
-
 
     public static function api_login($username, $password)
     {
@@ -99,13 +87,9 @@ class User extends Authenticatable
             return $response->json()['data']['token'];
         }
 
-        // throw new \Exception($response->json()['message'] ?? 'Login failed');
         return false;
     }
 
-    /**
-     * Step 2: Fetch Profile using the token
-     */
     public static function api_getProfile($token)
     {
         $baseUrl = 'https://api.quddus.my/api';
@@ -113,6 +97,5 @@ class User extends Authenticatable
             ->get("{$baseUrl}/profile");
 
         return $response->json();
->>>>>>> f09db3a72e3a156bd97e7df0f2e5b67f6f3b7ef9
     }
 }
