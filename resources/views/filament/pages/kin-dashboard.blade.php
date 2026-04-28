@@ -144,7 +144,7 @@
                         </div>
                     </div>
                 </div>
-                <button class="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-xl font-medium transition-colors">
+                <button wire:click="openDeathConfirmation" class="w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-xl font-medium transition-colors">
                     Confirm Death
                 </button>
             </section>

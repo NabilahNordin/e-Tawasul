@@ -145,8 +145,8 @@ class KinCrisisReport extends Page
         return __('Crisis Report');
     }
 
-    public static function shouldRegisterNavigation(): bool
+    /*public static function shouldRegisterNavigation(): bool
     {
         return false; // accessed via button only, not shown in nav
-    }
+    }*/
 }

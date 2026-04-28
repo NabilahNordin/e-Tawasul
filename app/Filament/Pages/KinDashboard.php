@@ -31,6 +31,11 @@ class KinDashboard extends Page
         $this->redirect(KinCrisisReport::getUrl());
     }
 
+    public function openDeathConfirmation(): void
+    {
+        $this->redirect(KinDeathConfirmation::getUrl());
+    }
+
     public function getTitle(): string | Htmlable
     {
         return __('');
