@@ -35,15 +35,18 @@ class testapi extends Command
 
         $data = $this->login("2225498", "jOB1Te_H7");
         $getProfile = $this->getProfile($data);
+<<<<<<< HEAD
 
         dd($getProfile);
+=======
+>>>>>>> b2ead1f1c58bbdde8542f289a10a0cc47fa9911a
         //$getSchedule = $this->getSchedule($data);
 
-        // $getListStaff = $this->getListStaff();
+        // $getListStaff = $this->getListStaff();  
 
 
         // dd($getSchedule);
-        // dump($getProfile);
+        dump($getProfile);
         // dd($getListStaff);
 
 
