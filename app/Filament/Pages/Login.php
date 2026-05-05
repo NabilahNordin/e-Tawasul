@@ -172,7 +172,7 @@ class Login extends OriLogin
                 $getEmail = User::playwrightscrapelogin($data['username'], $data['password']);
                 $getEmail = $getEmail?->email ?? false;
 
-                dd( $getEmail);
+           
 
             } else {
                 Notification::make()

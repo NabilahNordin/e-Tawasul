@@ -33,15 +33,15 @@ class testapi extends Command
     {
         //
 
-        //$data = $this->login("2225498", "jOB1Te_H7");
-        // $getProfile = $this->getProfile($data);
+        $data = $this->login("2225498", "jOB1Te_H7");
+        $getProfile = $this->getProfile($data);
         //$getSchedule = $this->getSchedule($data);
 
         // $getListStaff = $this->getListStaff();  
 
 
         // dd($getSchedule);
-        // dump($getProfile);
+        dump($getProfile);
         // dd($getListStaff);
 
 
