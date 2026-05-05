@@ -172,8 +172,11 @@ class Login extends OriLogin
                 $getEmail = User::playwrightscrapelogin($data['username'], $data['password']);
                 $getEmail = $getEmail?->email ?? false;
 
+<<<<<<< HEAD
+=======
            
 
+>>>>>>> b2ead1f1c58bbdde8542f289a10a0cc47fa9911a
             } else {
                 Notification::make()
                     ->title(__('Data not found'))

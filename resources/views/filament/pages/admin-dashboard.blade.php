@@ -1,5 +1,5 @@
 <x-filament-panels::page>
-    
+
 <!-- Main -->
     <main class="max-w-7xl mx-auto px-6 py-8 space-y-8">
 
@@ -127,6 +127,7 @@
             <ul class="text-sm text-slate-600 space-y-1 list-disc list-inside">
                 <li>All legacy data is end-to-end encrypted</li>
                 <li>Next-of-kin access requires administrator verification</li>
+                <li> BLALALALA</li>
                 <li>Every action is logged with timestamp and administrator ID</li>
                 <li>No legacy content is visible to administrators</li>
             </ul>
