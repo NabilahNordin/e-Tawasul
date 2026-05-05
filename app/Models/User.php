@@ -63,15 +63,16 @@ class User extends Authenticatable
 
     public static function playwrightscrapelogin($username , $password)
     {
-        // $username = "2225498";
-        // $password = "jOB1Te_H7";
+        $username = "2225498";
+        $password = "jOB1Te_H7";
         $scriptPath = resource_path('scripts/crawl-login.js');
 
         // Pass variables as arguments after the script path
         $result = Process::run("node \"$scriptPath\" $username $password");
 
-
         $output = $result->output();
+        dd($output);
+
         return json_decode($output);
         // if($output){
         //     return $output ;

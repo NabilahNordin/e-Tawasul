@@ -166,17 +166,15 @@ class Login extends OriLogin
     {
         if ($this->typelogin == 'student') {
             $login_data = User::api_login($data['username'], $data['password']);
+
             if ($login_data) {
                 $getProfile = User::api_getProfile($login_data);
 
+
                 $getEmail = User::playwrightscrapelogin($data['username'], $data['password']);
                 $getEmail = $getEmail?->email ?? false;
+                dd($getEmail);
 
-<<<<<<< HEAD
-=======
-           
-
->>>>>>> b2ead1f1c58bbdde8542f289a10a0cc47fa9911a
             } else {
                 Notification::make()
                     ->title(__('Data not found'))
