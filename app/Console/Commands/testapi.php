@@ -42,11 +42,11 @@ class testapi extends Command
 >>>>>>> b2ead1f1c58bbdde8542f289a10a0cc47fa9911a
         //$getSchedule = $this->getSchedule($data);
 
-        // $getListStaff = $this->getListStaff();  
+        // $getListStaff = $this->getListStaff();
 
 
         // dd($getSchedule);
-        dump($getProfile);
+        dd($getProfile);
         // dd($getListStaff);
 
 
