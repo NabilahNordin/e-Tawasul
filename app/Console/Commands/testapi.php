@@ -41,7 +41,7 @@ class testapi extends Command
 
 
         // dd($getSchedule);
-        dump($getProfile);
+        dd($getProfile);
         // dd($getListStaff);
 
 
