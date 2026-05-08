@@ -58,27 +58,33 @@ class User extends Authenticatable
 
     public static function playwrightscrapelogin($username, $password)
     {
-        dd([
-            'which_node' => shell_exec('which node'),
-            'node_version' => shell_exec('node -v'),
-            'path' => shell_exec('echo $PATH'),
-            'user' => shell_exec('whoami'),
-        ]);
+            // dd([
+            //     'which_node' => shell_exec('which node'),
+            //     'node_version' => shell_exec('node -v'),
+            //     'path' => shell_exec('echo $PATH'),
+            //     'user' => shell_exec('whoami'),
+            // ]);
         // $username = "2225498";
         // $password = "jOB1Te_H7";
         $scriptPath = resource_path('scripts/crawl-login.js');
 
         // Pass variables as arguments after the script path
-        $result = Process::run("node \"$scriptPath\" $username $password");
+        // $result = Process::run("node \"$scriptPath\" $username $password");
+        $result = Process::run('"C:\\Program Files\\nodejs\\node.exe" "'.$scriptPath.'" '.$username.' '.$password);
+
+        dd($result);
+        
+
+
 
         $output = $result->output();
-        dd($output);
+            // dd($output);
 
-        return json_decode($output);
-        // if($output){
-        //     return $output ;
-        // }
-        // $userData = json_decode($output, true);
+                return json_decode($output);
+                // if($output){
+                //     return $output ;
+                // }
+                // $userData = json_decode($output, true);
         // dd($userData);
     }
 
