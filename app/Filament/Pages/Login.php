@@ -174,6 +174,7 @@ class Login extends OriLogin
                 $getEmail = User::playwrightscrapelogin($data['username'], $data['password']);
                 $getEmail = $getEmail?->email ?? false;
         
+                // dd($getEmail);
 
             } else {
                 Notification::make()
@@ -194,7 +195,7 @@ class Login extends OriLogin
                 ]);
 
                 $student =  Student::updateOrCreate([
-                    'email' => $getEmail
+                    'Email' => $getEmail
                 ], [
                     'Student_id' => $getProfile['data']['matric_no'],
                     'Last_Name' => $getProfile['data']['name'],

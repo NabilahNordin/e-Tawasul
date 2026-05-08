@@ -16,6 +16,7 @@ class Test extends Page implements HasActions, HasSchemas
     use InteractsWithActions;
     use InteractsWithSchemas;
     protected string $view = 'filament.pages.test';
+    protected static ?int $navigationSort = 30;
 
     public function logoutAction(): Action
     {

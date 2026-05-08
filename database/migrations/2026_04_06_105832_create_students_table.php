@@ -11,7 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-         Schema::dropIfExists('students');
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('students');
+        Schema::enableForeignKeyConstraints();
+        
         Schema::create('students', function (Blueprint $table) {
 
             $table->id('Student_id'); // Primary Key
@@ -30,7 +33,7 @@ return new class extends Migration
             $table->string('kuliyyah')->nullable();
             $table->string('ic', 20)->nullable();
             $table->enum('gender', ['MALE', 'FEMALE'])->nullable();
-            $table->date('birthday')->nullable();
+            $table->string('birthday')->nullable();
             $table->string('religion')->nullable();
             $table->string('marital_status')->nullable();
             $table->text('address')->nullable();
