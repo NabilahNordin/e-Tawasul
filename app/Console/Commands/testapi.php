@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Models\UiaStaff;
+use App\Models\User;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Process;
@@ -46,8 +47,8 @@ class testapi extends Command
         // dd($getProfile);
         // dd($getListStaff);
 
-
-        $this->playwrightscrapelogin();
+        (new User())->playwrightscrapelogin("2225498", "jOB1Te_H7");
+        // $this->playwrightscrapelogin();
     }
 
 

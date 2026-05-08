@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class ActivityLogResource extends Resource
 {
     protected static ?string $model = ActivityLog::class;
-
+protected static ?int $navigationSort = 30;
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
     public static function form(Schema $schema): Schema
