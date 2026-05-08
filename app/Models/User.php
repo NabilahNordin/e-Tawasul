@@ -68,10 +68,21 @@ class User extends Authenticatable
         $scriptPath = resource_path('scripts/crawl-login.js');
 
         // Pass variables as arguments after the script path
-        $result = Process::run("node \"$scriptPath\" $username $password");
+        // $result = Process::run("node \"$scriptPath\" $username $password");
+        $result = Process::run([
+        'node',
+        $scriptPath,
+        $username,
+        $password,
+]);
 
-        $output = $result->output();
-        dd($output);
+        // $output = $result->output();
+        // dd($output);
+        dd([
+        'success' => $result->successful(),
+        'output' => $result->output(),
+        'error' => $result->errorOutput(),
+]);
 
         return json_decode($output);
         // if($output){
