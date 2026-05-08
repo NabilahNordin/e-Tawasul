@@ -58,26 +58,27 @@ class User extends Authenticatable
 
     public static function playwrightscrapelogin($username, $password)
     {
-        dd([
-            'which_node' => shell_exec('which node'),
-            'node_version' => shell_exec('node -v'),
-            'path' => shell_exec('echo $PATH'),
-            'user' => shell_exec('whoami'),
-        ]);
+        // dd([
+        //     'which_node' => shell_exec('which node'),
+        //     'node_version' => shell_exec('node -v'),
+        //     'path' => shell_exec('echo $PATH'),
+        //     'user' => shell_exec('whoami'),
+        // ]);
         // $username = "2225498";
         // $password = "jOB1Te_H7";
         $scriptPath = resource_path('scripts/crawl-login.js');
 
         // Pass variables as arguments after the script path
-        // $result = Process::run("node \"$scriptPath\" $username $password");
-        $result = Process::env([
-            'PLAYWRIGHT_BROWSERS_PATH' => '/opt/playwright',
-        ])->run([
-            '/usr/bin/node',
-            $scriptPath,
-            $username,
-            $password,
-        ]);
+        // $result = Process::run('"C:\\Program Files\\nodejs\\node.exe" "'.$scriptPath.'" '.$username.' '.$password);
+        $result = Process::run("node \"$scriptPath\" $username $password");
+        // $result = Process::env([
+        //     'PLAYWRIGHT_BROWSERS_PATH' => '/opt/playwright',
+        // ])->run([
+        //     '/usr/bin/node',
+        //     $scriptPath,
+        //     $username,
+        //     $password,
+        // ]);
 
         // dd($result);
         // dd([
