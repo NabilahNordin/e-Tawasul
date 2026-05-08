@@ -70,8 +70,10 @@ class User extends Authenticatable
         // Pass variables as arguments after the script path
         $result = Process::run("node \"$scriptPath\" $username $password");
 
+        // dd($result);
 
         $output = $result->output();
+        // dd($output);
         return json_decode($output);
         // if($output){
         //     return $output ;
