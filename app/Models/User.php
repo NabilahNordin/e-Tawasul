@@ -80,20 +80,15 @@ class User extends Authenticatable
         //     $password,
         // ]);
 
-        // dd($result);
-        // dd([
-        //     'successful' => $result->successful(),
-        //     'output' => $result->output(),
-        //     'error' => $result->errorOutput(),
-        // ]);
 
         $output = $result->output();
-        // dd($output);
-        return json_decode($output);
-        // if($output){
-        //     return $output ;
-        // }
-        // $userData = json_decode($output, true);
+            // dd($output);
+
+                return json_decode($output);
+                // if($output){
+                //     return $output ;
+                // }
+                // $userData = json_decode($output, true);
         // dd($userData);
     }
 
