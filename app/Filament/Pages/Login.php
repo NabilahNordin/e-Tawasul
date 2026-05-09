@@ -18,6 +18,7 @@ use Filament\Schemas\Components\Group;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class Login extends OriLogin
 {
@@ -216,6 +217,8 @@ class Login extends OriLogin
                     'marital_status' => $getProfile['data']['marital_status'],
                     'address' => $getProfile['data']['address'],
                 ]);
+
+                $user->assignRole(Role::where('name', 'student')->first());
 
                 Auth::login($user);
                 activity()
