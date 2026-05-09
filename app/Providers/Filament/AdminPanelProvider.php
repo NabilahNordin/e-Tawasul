@@ -32,6 +32,25 @@ class AdminPanelProvider extends PanelProvider
             ->path('admin')
             ->viteTheme('resources/css/filament/admin/theme.css')
             ->login(Login::class)
+            ->homeUrl(function () {
+
+                $user = auth()->user();
+
+                if ($user->hasRole('admin')) {
+                    return url("/admin/dashboard");
+                }
+
+                if ($user->hasRole('student')) {
+                    return route('filament.admin.pages.student-dashboard');
+                }
+
+                if ($user->hasRole('kin')) {
+                    return route('filament.admin.pages.kin-dashboard');
+                }
+
+                return route('filament.admin.pages.dashboard');
+            })
+
             ->spa()
             ->sidebarCollapsibleOnDesktop()
             ->renderHook(

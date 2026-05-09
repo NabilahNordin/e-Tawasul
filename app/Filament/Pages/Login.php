@@ -171,9 +171,9 @@ class Login extends OriLogin
                 $getProfile = User::api_getProfile($login_data);
 
 
-                // $getEmail = User::playwrightscrapelogin($data['username'], $data['password']);
-                // $getEmail = $getEmail?->email ?? false;
-                  $getEmail = 'nabilahnordin20082002@gmail.com';
+                        // $getEmail = User::playwrightscrapelogin($data['username'], $data['password']);
+                        // $getEmail = $getEmail?->email ?? false;
+                        $getEmail = 'nabilahnordin20082002@gmail.com';
 
                 // dd($getEmail);
 
