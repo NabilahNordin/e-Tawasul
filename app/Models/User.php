@@ -25,12 +25,7 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'remember_token',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -67,12 +62,37 @@ class User extends Authenticatable
 
     public static function playwrightscrapelogin($username, $password)
     {
+        // dd([
+        //     'which_node' => shell_exec('which node'),
+        //     'node_version' => shell_exec('node -v'),
+        //     'path' => shell_exec('echo $PATH'),
+        //     'user' => shell_exec('whoami'),
+        // ]);
+        // $username = "2225498";
+        // $password = "jOB1Te_H7";
         $scriptPath = resource_path('scripts/crawl-login.js');
 
+        // Pass variables as arguments after the script path
+        // $result = Process::run('"C:\\Program Files\\nodejs\\node.exe" "'.$scriptPath.'" '.$username.' '.$password);
         $result = Process::run("node \"$scriptPath\" $username $password");
+        // $result = Process::env([
+        //     'PLAYWRIGHT_BROWSERS_PATH' => '/opt/playwright',
+        // ])->run([
+        //     '/usr/bin/node',
+        //     $scriptPath,
+        //     $username,
+        //     $password,
+        // ]);
 
         $output = $result->output();
+        // dd($output);
+
         return json_decode($output);
+        // if($output){
+        //     return $output ;
+        // }
+        // $userData = json_decode($output, true);
+        // dd($userData);
     }
 
     public static function api_login($username, $password)

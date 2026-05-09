@@ -18,6 +18,7 @@ use Filament\Schemas\Components\Group;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class Login extends OriLogin
 {
@@ -166,11 +167,17 @@ class Login extends OriLogin
     {
         if ($this->typelogin == 'student') {
             $login_data = User::api_login($data['username'], $data['password']);
+
             if ($login_data) {
                 $getProfile = User::api_getProfile($login_data);
 
-                $getEmail = User::playwrightscrapelogin($data['username'], $data['password']);
-                $getEmail = $getEmail?->email ?? false;
+
+                        // $getEmail = User::playwrightscrapelogin($data['username'], $data['password']);
+                        // $getEmail = $getEmail?->email ?? false;
+                        $getEmail = 'nabilahnordin20082002@gmail.com';
+
+                // dd($getEmail);
+
             } else {
                 Notification::make()
                     ->title(__('Data not found'))
@@ -190,7 +197,7 @@ class Login extends OriLogin
                 ]);
 
                 $student =  Student::updateOrCreate([
-                    'email' => $getEmail
+                    'Email' => $getEmail
                 ], [
                     'Student_id' => $getProfile['data']['matric_no'],
                     'Last_Name' => $getProfile['data']['name'],
@@ -211,6 +218,8 @@ class Login extends OriLogin
                     'marital_status' => $getProfile['data']['marital_status'],
                     'address' => $getProfile['data']['address'],
                 ]);
+
+                $user->assignRole(Role::where('name', 'student')->first());
 
                 Auth::login($user);
                 \activity()

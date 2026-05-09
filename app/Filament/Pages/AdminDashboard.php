@@ -19,3 +19,5 @@ class AdminDashboard extends Page
         return auth()->user()?->hasRole(['admin']);
     }
 }
+
+

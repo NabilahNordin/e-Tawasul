@@ -159,9 +159,9 @@
                     </div>
 
                     <!-- Button -->
-                   
+
                         {{ ($this->donatenowAction)(['post' => 1]) }}
-                   
+
                 </div>
 
                 <!-- CARD 2 -->
@@ -218,7 +218,7 @@
 
                     <!-- Button -->
                        <!-- Button -->
-                   
+
                         {{ ($this->donatenowAction)(['post' => 2]) }}
                 </div>
 
@@ -276,7 +276,7 @@
 
                     <!-- Button -->
                        <!-- Button -->
-                   
+
                         {{ ($this->donatenowAction)(['post' => 3]) }}
                 </div>
 
@@ -334,7 +334,7 @@
 
                     <!-- Button -->
                        <!-- Button -->
-                   
+
                         {{ ($this->donatenowAction)(['post' => 4]) }}
                 </div>
 

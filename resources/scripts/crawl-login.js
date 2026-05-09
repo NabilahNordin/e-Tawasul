@@ -11,9 +11,9 @@ const user_pass = process.argv[3];
     // console.log("Debug User:", user_id);
     // Check if variables are undefined before using them
     if (!user_id || !user_pass) {
-        console.error(JSON.stringify({ 
-            status: 'error', 
-            message: 'Environment variables CRAWL_USER or CRAWL_PASS are missing' 
+        console.error(JSON.stringify({
+            status: 'error',
+            message: 'Environment variables CRAWL_USER or CRAWL_PASS are missing'
         }));
         process.exit(1);
     }
